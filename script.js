@@ -147,11 +147,12 @@
 
   /* ================= 6. หน้าหลัก ================= */
   function initHome() {
-    const logo = $('#mainLogo');
-    logo.addEventListener('error', function () {
-      logo.hidden = true;
-      $('#logoHint').hidden = false;
-    });
+  const logo = ('#mainLogo');
+  const fail = () => { logo.hidden = true; ('#logoHint').hidden = false; };
+  logo.addEventListener('error', fail);
+  if (logo.complete && logo.naturalWidth === 0) fail();   // เช็กย้อนหลัง
+}
+  
   }
   function onEnterHome() {
     const user = Store.getUser();
