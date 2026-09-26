@@ -1,5 +1,4 @@
-// ไฟล์ที่ 3 : js/app.js
-// SnapFind - รวมตรรกะทั้งหมดไว้ในไฟล์เดียว (ล็อกอิน / Navbar / อัปโหลด / ค้นหา / ออกจากระบบ)
+// (ล็อกอิน / Navbar / อัปโหลด / ค้นหา / ออกจากระบบ)
 
 (function () {
   'use strict';
@@ -147,19 +146,17 @@
 
   /* ================= 6. หน้าหลัก ================= */
   function initHome() {
-  const logo = ('#mainLogo');
-  const fail = () => { logo.hidden = true; ('#logoHint').hidden = false; };
+  const logo = $('#mainLogo');
+  const fail = () => { logo.hidden = true; $('#logoHint').hidden = false; };
   logo.addEventListener('error', fail);
   if (logo.complete && logo.naturalWidth === 0) fail();   // เช็กย้อนหลัง
 }
-  
-  }
   function onEnterHome() {
-    const user = Store.getUser();
-    const n = Store.getRecords().length;
-    $('#homeStat').textContent =
-      (user ? 'เข้าสู่ระบบในชื่อ ' + user.email + ' • ' : '') + 'มีข้อมูลที่บันทึกไว้ ' + n + ' รายการ';
-  }
+  const user = Store.getUser();
+  const n = Store.getRecords().length;
+  $('#homeStat').textContent =
+   (user ? 'เข้าสู่ระบบในชื่อ ' + user.email + ' • ' : '') + 'มีข้อมูลที่บันทึกไว้ ' + n + ' รายการ';
+}
 
   /* ================= 7. หน้าอัปโหลด ================= */
   function initUpload() {
